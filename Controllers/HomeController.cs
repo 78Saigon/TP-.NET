@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
+﻿using AspNetCoreGeneratedDocument;
+using Microsoft.AspNetCore.Html;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using TPLOCAL1.Models;
 
 //Subject is find at the root of the project and the logo in the wwwroot/ressources folders of the solution
@@ -23,13 +26,16 @@ namespace TPLOCAL1.Controllers
                 {
                     case "OpinionList":
                         //TODO : code reading of the xml files provide
+                        //OpinionList opinionList = new 
+                        //List<Opinion> ListeAvis = new List<Opinion>();
                         return View(id);
                     case "Form":
                         //TODO : call the Form view with data model empty
                         return View(id);
                     default:
                         //retourn to the Index view (see routing in Program.cs)
-                        return View();
+                        return Content("Autre page.");
+                        //return View();
                 }
             }
         }
@@ -37,13 +43,27 @@ namespace TPLOCAL1.Controllers
 
         //methode to send datas from form to validation page
         [HttpPost]
-        public ActionResult ValidationFormulaire(/*model*/)
+        public ActionResult ValidationFormulaire(FormModel Form)
         {
             //TODO : test if model's fields are set
             //if not, display an error message and stay on the form page
+            if (!ModelState.IsValid)
+            {
+                ModelState.AddModelError("", "NON VALIDE");
+                return View("Form");
+            }
             //else, call ValidationForm with the datas set by the user
-            return null;
+            else
+            {
+                return View("ValidationForm");
+            }
+
+            //return View("ValidationForm");
+
+            //return null;
 
         }
+            
+        
     }
 }

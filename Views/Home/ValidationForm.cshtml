@@ -1,22 +1,18 @@
-﻿@Html.ValidationSummary(false, "")
-
-
-<!DOCTYPE html>
-
+﻿
 <html>
 
     <head>
-        <title>Formulaire à remplir</title>
+        <title>Validation Formulaire</title>
         <link rel="stylesheet" href="~/resources/Index.css" />
     </head>
 
     <body>
 
         <header>
-            <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />        
+            <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
             <h1>Formulaire TP HN avis</h1>
         </header>
-              
+
         <nav>
             <ul>
                 <li><a href="/Home">Accueil</a></li>
@@ -25,29 +21,31 @@
         </nav>
 
         <section>
-                       
-            <form action="/Home/ValidationFormulaire"
-                  method="post">
 
+            <p>Votre formulaire a bien été pris en compte</p>
 
+        
                 <table>
                     <caption>Informations personelles</caption>
                     <tr>
                         <td>Nom</td>
-                        <td><input type="text" name="LastName" value="" /></td>                                                        
+                        <td>FormMo</td>
+
                     </tr>
                     <tr>
                         <td>Prénom</td>
-                        <td><input type="text" name="FirstName" value="" /></td>
+                        <td><input type="text" name="FirstName" value="" required /></td>
                     </tr>
                     <tr>
                         <td>Genre</td>
-                        <td><select name="Genre" required> 
+                        <td>
+                            <select name="Genre" required>
                                 <option value="">Sélectionner un genre</option>
                                 <option value="homme">Homme</option>
                                 <option value="femme">Femme</option>
                                 <option value="autre">Autre</option>
-                            </select></td>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Adresse</td>
@@ -56,10 +54,10 @@
                     <tr>
                         <td>Code postal</td>
                         <td>
-                            <input type="text" name="Postal" value="" 
-                               minlength="5" maxlength="5" required />
+                            <input type="text" name="Postal" value=""
+                                   minlength="5" maxlength="5" required />
                         </td>
-                     
+
                     </tr>
                     <tr>
                         <td>Ville</td>
@@ -68,22 +66,22 @@
                     <tr>
                         <td>Adresse e-mail</td>
                         <td><input type="text" name="Mail" value="" required /></td>
-                     
+
                     </tr>
 
                 </table>
 
-           
+
 
                 <table>
-                <caption>Informations formation suivie</caption>
+                    <caption>Informations formation suivie</caption>
                     <tr>
                         <td>Date début formation</td>
                         <td>
                             <input type="date"
-                               id="StartDate"
-                               name="class-start"
-                               max="2021-01-01" />
+                                   id="StartDate"
+                                   name="class-start"
+                                   max="2021-01-01" />
                         </td>
 
                     </tr>
@@ -97,12 +95,12 @@
                                 <option value="double">Formaton à double compétence</option>
                             </select>
                         </td>
-                    </tr>                
+                    </tr>
                 </table>
-                                  
+
                 <table>
                     <caption>Avis formation</caption>
-                                                  
+
                     <tr>
                         <td>Formation Cobol</td>
                         <td><input type="text" name="AvisCobol" value="" /></td>
@@ -111,17 +109,15 @@
                     <tr>
                         <td>Formation C#</td>
                         <td><input type="text" name="AvisCS" value="" /></td>
-                    </tr>                 
-                              
+                    </tr>
+
                 </table>
 
                 <input type="submit" value="Valider" />
 
-            </form>
-           
-        </section>  
+            
+        </section>
 
-    
 
     </body>
 

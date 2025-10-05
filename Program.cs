@@ -18,4 +18,8 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapControllerRoute(
+    name: "validation",
+    pattern: "{controller=Home}/{action=ValidationFormulaire}/{id?}");
+
 app.Run();
