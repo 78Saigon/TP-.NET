@@ -11,7 +11,8 @@ using System.ComponentModel.DataAnnotations;
 namespace TPLOCAL1.Models
 {
     public class FormModel
-    {
+    {       
+
         [Required(ErrorMessage = "Veuillez mettre un nom")]
         public string LastName { get; set; }
 
@@ -25,7 +26,7 @@ namespace TPLOCAL1.Models
         public string Adresse { get; set; }               
 
         [Required(ErrorMessage = "Veuillez mettre un code postal")]
-        // [StringLength(5, MinimumLength = 5, ErrorMessage = "Veuillez mettre un code postal à 5 chiffres")]
+        //[StringLength(5, MinimumLength = 5, ErrorMessage = "Veuillez mettre un code postal à 5 chiffres")]
         [RegularExpression("([0-9]){5}", ErrorMessage = "Veuillez mettre un code postal à 5 chiffres")]
         public string Postal { get; set; }
 
@@ -33,24 +34,19 @@ namespace TPLOCAL1.Models
         public string Ville { get; set; }
 
         [Required(ErrorMessage = "Veuillez mettre une adresse-mail")]
-        [RegularExpression(@"^([\\w]+)@([\\w]+)\.( [\\w]+)$", ErrorMessage = "Veuillez mettre un format d'adresse-mail")]
+        [RegularExpression(@"^([\w.]+)@([\w]+)\.([\w]+)$", ErrorMessage = "Veuillez mettre un format d'adresse-mail")]
         public string Mail { get; set; }
-
 
     
         [Required(ErrorMessage = "Veuillez mettre une date")]
         public string DateFormation { get; set; }
+        
 
         [Required(ErrorMessage = "Veuillez choisir une formation")]
         public string Formation { get; set; }
-    
 
-  
-        [Required(ErrorMessage = "Veuillez mettre un avis")]
-        public string AvisCobol { get; set; }
-
-        [Required(ErrorMessage = "Veuillez choisir un avis")]
-        public string AvisCS { get; set; }
+        public string? AvisCobol { get; set; }
+        public string? AvisCS { get; set; }
 
     }
 

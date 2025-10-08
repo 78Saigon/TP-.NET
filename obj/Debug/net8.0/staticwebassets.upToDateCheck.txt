@@ -1,3 +1,2 @@
 wwwroot\resources\GroupeHN.png
 wwwroot\resources\Index.css
-wwwroot\resources\submit-form.php

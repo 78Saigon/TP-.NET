@@ -1,0 +1,107 @@
+﻿@model TPLOCAL1.Models.FormModel
+
+<html>
+
+    <head>
+        <title>Page de validation</title>
+        <link rel="stylesheet" href="~/resources/Index.css" />
+    </head>
+
+    <body>
+
+        <header>
+            <img src="~/resources/GroupeHN.png" class="image" alt="GroupeHN" />
+            <h1>Page de validation</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="/Home">Accueil</a></li>
+                <li><a href="/Home/Index/OpinionList">Liste avis</a></li>
+            </ul>
+        </nav>
+
+        <section>
+
+            <p>Votre formulaire a bien été pris en compte</p>
+        
+                <table>
+                    <caption>Informations personelles</caption>
+                    <tr>
+                        <td>Nom</td>
+                        <td> @Model.LastName </td>
+
+                    </tr>
+                    <tr>
+                        <td>Prénom</td>
+                        <td> @Model.FirstName </td>
+                    </tr>
+                    <tr>
+                        <td>Genre</td>
+                        <td> @Model.Genre </td>                                                   
+                    </tr>
+                    <tr>
+                        <td>Adresse</td>
+                        <td> @Model.Adresse </td>
+                    </tr>
+                    <tr>
+                        <td>Code postal</td>
+                        <td>
+                            @Model.Postal
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Ville</td>
+                        <td> @Model.Ville </td>
+                    </tr>
+                    <tr>
+                        <td>Adresse e-mail</td>
+                        <td> @Model.Mail </td>
+
+                    </tr>
+
+                </table>
+
+                <table>
+                    <caption>Informations formation suivie</caption>
+                    <tr>
+                        <td>Date début formation</td>
+                        <td>
+                            <!--YYYY-MM-DD => DD-MM-YYYY -->
+                            @Model.DateFormation.Substring(8, 2)-@Model.DateFormation.Substring(5, 2)-@Model.DateFormation.Substring(0, 4)                            
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Formation suivie</td>
+                        <td>
+                            @Model.Formation
+                        </td>
+                    </tr>
+                </table>
+
+                <table>
+                    <caption>Avis formation</caption>
+
+                    <tr>
+                        <td>Formation Cobol</td>
+                        <td> @Model.AvisCobol </td>
+
+                    </tr>
+                    <tr>
+                        <td>Formation C#</td>
+                        <td> @Model.AvisCS </td>
+                    </tr>
+
+                </table>
+
+                <input type="submit" value="Valider" />
+
+            
+        </section>
+
+
+    </body>
+
+</html>

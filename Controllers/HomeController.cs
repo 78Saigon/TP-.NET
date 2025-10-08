@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using TPLOCAL1.Models;
+using System.Runtime;
+using System.Reflection.Metadata.Ecma335;
+
 
 //Subject is find at the root of the project and the logo in the wwwroot/ressources folders of the solution
 //--------------------------------------------------------------------------------------
@@ -25,17 +28,15 @@ namespace TPLOCAL1.Controllers
                 switch (id)
                 {
                     case "OpinionList":
-                        //TODO : code reading of the xml files provide
-                        //OpinionList opinionList = new 
-                        //List<Opinion> ListeAvis = new List<Opinion>();
+                        //TODO : code reading of the xml files provide                                                                                                               
                         return View(id);
                     case "Form":
                         //TODO : call the Form view with data model empty
                         return View(id);
                     default:
-                        //retourn to the Index view (see routing in Program.cs)
-                        return Content("Autre page.");
-                        //return View();
+                        //retourn to the Index view (see routing in Program.cs)                        
+                        return View();
+                    
                 }
             }
         }
@@ -49,21 +50,15 @@ namespace TPLOCAL1.Controllers
             //if not, display an error message and stay on the form page
             if (!ModelState.IsValid)
             {
-                ModelState.AddModelError("", "NON VALIDE");
-                return View("Form");
+                return View("Form");                
             }
             //else, call ValidationForm with the datas set by the user
             else
             {
-                return View("ValidationForm");
+                return View(Form);
             }
 
-            //return View("ValidationForm");
-
-            //return null;
-
-        }
-            
+        }            
         
     }
 }

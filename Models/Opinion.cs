@@ -77,5 +77,4 @@ namespace TPLOCAL1.Models
         /// </summary>
         public string OpinionGiven { get; set; }
     }
-        
 }
