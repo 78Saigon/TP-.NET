@@ -19,14 +19,13 @@ namespace TPLOCAL1.Models
         [Required(ErrorMessage = "Veuillez mettre un prénom")]
         public string FirstName { get; set; }
 
-        [Required(ErrorMessage = "Veuillez mettre un genre")]
+        [Required(ErrorMessage = "Veuillez choisir un genre")]
         public string Genre { get; set; }
 
         [Required(ErrorMessage = "Veuillez mettre une adresse")]
         public string Adresse { get; set; }               
 
         [Required(ErrorMessage = "Veuillez mettre un code postal")]
-        //[StringLength(5, MinimumLength = 5, ErrorMessage = "Veuillez mettre un code postal à 5 chiffres")]
         [RegularExpression("([0-9]){5}", ErrorMessage = "Veuillez mettre un code postal à 5 chiffres")]
         public string Postal { get; set; }
 

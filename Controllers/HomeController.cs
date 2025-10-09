@@ -50,13 +50,14 @@ namespace TPLOCAL1.Controllers
             //if not, display an error message and stay on the form page
             if (!ModelState.IsValid)
             {
-                return View("Form");                
+                return View("Form");
             }
             //else, call ValidationForm with the datas set by the user
             else
             {
                 return View(Form);
             }
+
 
         }            
         

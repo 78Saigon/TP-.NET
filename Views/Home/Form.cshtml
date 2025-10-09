@@ -1,4 +1,4 @@
-﻿@Html.ValidationSummary(false, "")
+﻿@model TPLOCAL1.Models.FormModel
 
 <!DOCTYPE html>
 
@@ -8,6 +8,7 @@
         <title>Formulaire</title>
         <link rel="stylesheet" href="~/resources/Index.css" />
     </head>
+
 
     <body>
 
@@ -33,45 +34,48 @@
                     <caption>Informations personelles</caption>
                     <tr>
                         <td>Nom</td>
-                        <td><input type="text" name="LastName" /></td>                                                        
+                        <td><input asp-for="LastName" type="text" /> <span asp-validation-for="LastName" class="erreur" ></span> </td>                   
+                        
                     </tr>
                     <tr>
                         <td>Prénom</td>
-                        <td><input type="text" name="FirstName" /></td>
+                        <td><input asp-for="FirstName" type="text" /> <span asp-validation-for="FirstName" class="erreur"></span></td>
                     </tr>
                     <tr>
                         <td>Genre</td>
-                        <td><select name="Genre" > 
-                                <option value="">Sélectionner un genre</option>
+                    <td class="genre">
+                        <select asp-for="Genre">                            
+                            <option value="">Sélectionner un genre</option>
                                 <option value="Homme">Homme</option>
                                 <option value="Femme">Femme</option>
-                                <option value="Autre">Autre</option>
-                            </select></td>
+                                <option value="Autre">Autre</option>                            
+                         </select>
+                         <span asp-validation-for="Genre" class="erreur"></span>
+                    </td>
                     </tr>
                     <tr>
                         <td>Adresse</td>
-                        <td><input type="text" name="Adresse" /></td>
+                        <td><input type="text" asp-for="Adresse" />
+                        <span asp-validation-for="Adresse" class="erreur"></span> </td>                        
+
                     </tr>
                     <tr>
                         <td>Code postal</td>
-                        <td>                      
-                            <input type="text" name="Postal" />
-                        </td>
-                     
+                        <td>
+                        <input type="text" asp-for="Postal" />  <span asp-validation-for="Postal" class="erreur"></span> </td>               
+                                        
                     </tr>
                     <tr>
                         <td>Ville</td>
-                        <td><input type="text" name="Ville" /></td>
+                        <td><input type="text" asp-for="Ville" /> <span asp-validation-for="Ville" class="erreur"></span> </td>
                     </tr>
                     <tr>
                         <td>Adresse e-mail</td>
-                        <td><input type="email" name="Mail" /></td>
+                        <td><input type="email" asp-for="Mail" /> <span asp-validation-for="Mail" class="erreur"></span> </td>
                      
                     </tr>
 
                 </table>
-
-           
 
                 <table>
                 <caption>Informations formation suivie</caption>
@@ -79,20 +83,22 @@
                         <td>Date début formation</td>
                         <td>
                             <input type="date"     
-                               name="DateFormation"
+                               asp-for="DateFormation"
                                max="2021-01-01" />
+                            <span asp-validation-for="DateFormation" class="erreur"></span>
                         </td>
 
                     </tr>
                     <tr>
                         <td>Formation suivie</td>
                         <td>
-                            <select name="Formation">
+                            <select asp-for="Formation">
                                 <option value="">Sélectionner un cours</option>
                                 <option value="Cobol">Formation Cobol</option>
                                 <option value="Objet">Formation par objet</option>
                                 <option value="Double compétence">Formaton à double compétence</option>
                             </select>
+                            <span asp-validation-for="Formation" class="erreur"></span>
                         </td>
                     </tr>                
                 </table>
